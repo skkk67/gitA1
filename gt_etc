@@ -1,0 +1,54 @@
+DATA:::
+
+db.employees.insertMany([
+  { "name": "Alice", "salary": 60000 },
+  { "name": "Bob", "salary": 70000 },
+  { "name": "Charlie", "salary": 80000 },
+  { "name": "David", "salary": 75000 },
+  { "name": "Eva", "salary": 90000 },
+  { "name": "Frank", "salary": 65000 },
+  { "name": "Grace", "salary": 85000 },
+  { "name": "Harry", "salary": 72000 },
+  { "name": "Ivy", "salary": 95000 },
+  { "name": "Jack", "salary": 78000 }
+])
+
+
+$gt:::
+
+db.employees.find({
+  "salary": { $gt: 75000 }
+})
+
+
+
+
+
+
+$lt:::
+
+
+
+db.employees.find({
+  "salary": { $lt: 80000 }
+})
+
+
+
+$lt:::
+
+
+db.employees.find({
+  "salary": { $eq: 80000 }
+})
+
+
+
+$gte:::
+
+
+db.employees.find({
+  "salary": { $gte: 80000 }
+})
+
+
