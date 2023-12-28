@@ -1,0 +1,64 @@
+db.sales.insertMany([
+  { "product": "Laptop", "quantity": 5, "price_per_unit": 1200 },
+  { "product": "Smartphone", "quantity": 10, "price_per_unit": 500 },
+  { "product": "Tablet", "quantity": 3, "price_per_unit": 300 },
+  { "product": "Monitor", "quantity": 2, "price_per_unit": 250 },
+  { "product": "Printer", "quantity": 1, "price_per_unit": 150 },
+  { "product": "Headphones", "quantity": 8, "price_per_unit": 50 },
+  { "product": "Keyboard", "quantity": 4, "price_per_unit": 30 },
+  { "product": "Mouse", "quantity": 7, "price_per_unit": 20 },
+  { "product": "External Hard Drive", "quantity": 2, "price_per_unit": 100 },
+  { "product": "Webcam", "quantity": 1, "price_per_unit": 80 }
+])
+
+
+total:::
+
+
+
+db.sales.aggregate([
+  {
+    $project: {
+      totalValue: { $multiply: ["$quantity", "$price_per_unit"] }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      totalSales: { $sum: "$totalValue" }
+    }
+  }
+])
+
+
+
+
+
+avg:::
+
+
+db.sales.aggregate([
+  {
+    $group: {
+      _id: null,
+      averagePrice: { $avg: "$price_per_unit" }
+    }
+  }
+])
+
+
+
+
+max:::
+
+db.sales.aggregate([
+  {
+    $group: {
+      _id: null,
+      maxQuantity: { $max: "$quantity" }
+    }
+  }
+])
+
+
+
