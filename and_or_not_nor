@@ -1,0 +1,68 @@
+db.users.insertOne({
+  "name": "John",
+  "age": 25,
+  "email": "john@example.com",
+  "city": "New York"
+})
+
+db.users.insertMany([
+  {
+    "name": "Alice",
+    "age": 30,
+    "email": "alice@example.com",
+    "city": "San Francisco"
+  },
+  {
+    "name": "Bob",
+    "age": 28,
+    "email": "bob@example.com",
+    "city": "Los Angeles"
+  }
+])
+
+
+
+$and
+
+db.users.find({
+  $and: [
+    { "name": "John" },
+    { "age": 25 }
+  ]
+})
+
+
+
+$OR
+
+db.users.find({
+  $or: [
+    { "name": "John" },
+    { "age": 25 }
+  ]
+})
+
+
+
+
+
+$NOT
+db.users.find({
+  "name": {
+    $not: {
+      $eq: "John"
+    }
+  }
+})
+
+
+$NOR
+db.users.find({
+  $nor: [
+    { "name": "John" },
+    { "age": 25 }
+  ]
+})
+
+
+
