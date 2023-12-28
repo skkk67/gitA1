@@ -52,3 +52,29 @@ db.employees.find({
 })
 
 
+$lte:::
+
+db.employees.find({
+  "salary": { $lte: 80000 }
+})
+
+
+
+$ne::::
+
+db.employees.find({
+  "salary": { $ne: 80000 }
+})
+
+
+$in:::
+
+db.employees.find({
+  "salary": { $in: [70000, 80000, 90000] }
+})
+
+
+
+
+
+
