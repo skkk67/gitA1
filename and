@@ -1,0 +1,26 @@
+{ "_id": 1, "username": "Alice", "age": 25, "city": "New York" }
+{ "_id": 2, "username": "Bob", "age": 30, "city": "San Francisco" }
+{ "_id": 3, "username": "Charlie", "age": 22, "city": "Los Angeles" }
+
+
+
+$and:
+
+Find users who are aged 25 and live in New York:
+db.users.find({ $and: [ { age: 25 }, { city: "New York" } ] })
+
+
+$or:
+
+Find users who are either aged 30 or live in Los Angeles:
+db.users.find({ $or: [ { age: 30 }, { city: "Los Angeles" } ] })
+
+$not:
+
+Find users who are not aged 22:
+db.users.find({ age: { $not: { $eq: 22 } } })
+
+$nor:
+
+Find users who are neither aged 25 nor live in San Francisco:
+db.users.find({ $nor: [ { age: 25 }, { city: "San Francisco" } ] })
